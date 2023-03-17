@@ -1,0 +1,43 @@
+name: Tests
+
+on:
+  # Manually trigger-able in GitHub
+  workflow_dispatch:
+
+  # When a push occurs on either of these branches
+  push:
+    branches:
+      - main
+
+  # When a push occurs on a PR that targets these branches
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  ubuntu:
+    name: ${{ matrix.os }}-${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+        python-version: ['3.7', '3.8', '3.9']
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3.1.0
+
+    - name: Setup Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Tests
+      timeout-minutes: 120
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        pytest

@@ -1,3 +1,9 @@
 # web requirements
 fastapi>=0.94.0
 uvicorn[standard]>=0.21.0
+pillow>=9.4.0
+python-multipart>=0.0.6
+
+# test utils
+pytest>=7.2.2
+pytest-cov>=4.0.0

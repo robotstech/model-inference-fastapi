@@ -1,0 +1,9 @@
+version: '3'
+services:
+  vm:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    platform: "linux/amd64"
+    command: uvicorn main:app
