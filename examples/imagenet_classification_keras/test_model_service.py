@@ -1,4 +1,4 @@
-from examples.imagenet_classification.model_service import ModelService
+from examples.imagenet_classification_keras.model_service import ModelService
 
 
 def test_predict():
