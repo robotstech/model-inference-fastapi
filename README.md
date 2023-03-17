@@ -104,3 +104,26 @@ def test_predict():
         prediction = ModelService.predict(image_files=[file.read()])
         assert prediction[0]["class"] == "dog" 
 ```
+
+### Using the docker image
+See example dir for more info.
+1. create a `Dockerfile` like so
+```Dockerfile
+FROM robotstech/model-inference-fastapi
+
+EXPOSE 8000
+WORKDIR /app
+
+COPY requirements.txt ./requirements.txt
+
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# move model_service.py
+COPY ./model_service.py ./model_inference_fastapi/
+
+# move data to data dir
+COPY ./imagenet1000_clsidx_to_labels.txt ./data/
+```
+
+The key info here is to move the `model_service.py` and data/resource to the right directory

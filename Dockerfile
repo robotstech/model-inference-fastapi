@@ -1,10 +1,14 @@
-FROM tensorflow/tensorflow
+FROM python:3.9-slim
 
+EXPOSE 8000
 WORKDIR /app
 
-COPY . .
+COPY ./requirements.txt ./package.requirements.txt
 
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r package.requirements.txt
 
-CMD ["uvicorn", "main:app"]
+COPY ./model_inference_fastapi/ ./model_inference_fastapi/
+RUN mkdir data
+
+CMD ["uvicorn", "model_inference_fastapi.main:app", "--host", "0.0.0.0"]
