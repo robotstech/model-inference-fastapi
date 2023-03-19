@@ -2,7 +2,6 @@ import json
 import sys
 from typing import Dict, List, Optional
 
-import uvicorn
 from fastapi import FastAPI, UploadFile, HTTPException
 from pydantic import BaseModel
 
@@ -66,4 +65,3 @@ async def prediction_route(json_data: Optional[JsonData] = None, image_files: Op
 @app.get("/ping")
 async def ping():
     return "pong"
-
