@@ -28,7 +28,7 @@ class JsonData(BaseModel):
 # Define the main route
 @app.get('/')
 def root_route():
-    return {'error': 'Use GET /prediction instead of the root route!'}
+    raise HTTPException(status_code=400, detail=f'Use GET /prediction instead of the root route!')
 
 
 # Define the /prediction route
