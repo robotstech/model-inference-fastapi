@@ -51,7 +51,8 @@ async def prediction_route(json_data: Optional[JsonData] = None, image_files: Op
             contents = await file.read()
             _files.append(contents)
 
-        if err := ModelService.validate(data=data, image_files=_files):
+        err = ModelService.validate(data=data, image_files=_files)
+        if err:
             raise HTTPException(status_code=400, detail=err)
 
         response = ModelService.predict(data=data, image_files=_files)
