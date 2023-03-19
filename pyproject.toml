@@ -11,7 +11,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "model-inference-fastapi"
-version = "0.0.3"
+version = "0.0.1a"
 description = "Use fastapi for model inference over http"
 readme = "README.md"
 requires-python = ">=3.7"
