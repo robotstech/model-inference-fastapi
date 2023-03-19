@@ -8,7 +8,7 @@ from model_inference_fastapi.model_service_base import ModelServiceBase
 from model_inference_fastapi.utils import convert_file_to_pil_image
 
 
-# derived from https://keras.io/api/applications/
+# derived from https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
 class ModelService(ModelServiceBase):
     __model = resnet50(weights="IMAGENET1K_V2")
     __transform = Compose([
