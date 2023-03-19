@@ -33,6 +33,7 @@ def test_predict_endpoint_with_bad_data():
     assert response.status_code == 400
 
 
+# TODO: expand tests to cover image and files
 def test_predict_endpoint_with_valid_data():
     json_data = {"data": [{}]}
     bytes_data = bytes()

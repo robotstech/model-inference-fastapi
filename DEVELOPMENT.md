@@ -10,7 +10,18 @@ create an `.env` file by using the `.example.env` template/sample and fill in th
 
 ```shell
 pytest
-pytest --cov=model_inference_fastapi #with coverage
+```
+
+#### with coverage
+
+```shell
+pytest --cov=model_inference_fastapi
+```
+
+#### with coverage and html report
+
+```shell
+pytest --cov=model_inference_fastapi --cov-report=html
 ```
 
 ## Build

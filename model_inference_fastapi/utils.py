@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 
 
+# TODO: write test for utils
 def convert_file_to_pil_image(file: bytes):
     return Image.open(io.BytesIO(file))
 
