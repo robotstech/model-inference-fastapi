@@ -8,7 +8,7 @@ class ModelServiceBase(ABC):
     @staticmethod
     @abstractmethod
     def validate(*, data: Optional[List[Dict]] = None, image_files: Optional[List[bytes]] = None) -> Optional[str]:
-        return
+        pass
 
     @staticmethod
     @abstractmethod
