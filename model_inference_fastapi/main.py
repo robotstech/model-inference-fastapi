@@ -35,7 +35,7 @@ def root_route():
 @app.post('/predict/', response_model=List[Dict])
 async def prediction_route(json_data: Optional[JsonData] = None, image_files: Optional[List[UploadFile]] = None):
     _files = []
-    data = json_data.data or list()
+    data = (json_data and json_data.data) or list()
     image_files = image_files or list()
 
     if not (image_files or data):
