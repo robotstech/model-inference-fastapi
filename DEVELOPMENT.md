@@ -24,7 +24,7 @@ pytest --cov=model_inference_fastapi
 pytest --cov=model_inference_fastapi --cov-report=html
 ```
 
-## Build
+## Build Package
 
 Pypi [doc](https://packaging.python.org/en/latest/tutorials/packaging-projects/#generating-distribution-archives)
 
@@ -42,7 +42,7 @@ python3 -m pip install --upgrade build
 python3 -m build
 ```
 
-## Pre Publish
+## Pre Publish Package
 
 Pypi [doc](https://packaging.python.org/en/latest/tutorials/packaging-projects/#uploading-the-distribution-archives)
 
@@ -75,11 +75,39 @@ To install from TestPypi run
 python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps model-inference-fastapi
 ```
 
-## Publishing
+## Publishing Package
 
 Follow the above instructions but for [pypi](https://pypi.org/) not [testpypi](https://test.pypi.org/)
 
 ```shell
 python3 -m pip install --upgrade twine
 python3 -m twine upload dist/*
+```
+
+## Build Docker Image
+```shell
+docker build . -t robotstech/model-inference-fastapi
+```
+
+## Run docker image
+```shell
+docker run robotstech/model-inference-fastapi
+```
+
+#### Using docker compose
+```shell
+docker compose up
+```
+
+Add the `--build` flag to rebuild the image
+
+#### Clean up images
+```shell
+docker rm robotstech/model-inference-fastapi
+docker compose rm
+```
+
+## Publish Docker image
+```shell
+docker push robotstech/model-inference-fastapi
 ```
